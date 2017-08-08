@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body{
+        margin: 0;padding: 0;
+        background: #79e2ff;
+    }
+    .cloud{
+        width: 80px;
+        height: 80px;
+        background: #fff;
+        border-radius: 50%;
+        margin: 100px auto;
+        box-shadow: 70px 0px 0px #fff,40px -30px 0px #fff;
+        position: relative;
+    }
+    .cloud:after{
+        content: "";
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        left: 20px;
+        top: -20px;
+        box-shadow:70px 0px 0px #fff,30px 60px 0px #fff;
+    }
+</style>
+<body>
+    <div class="cloud">
+
+    </div>
+</body>
+</html>

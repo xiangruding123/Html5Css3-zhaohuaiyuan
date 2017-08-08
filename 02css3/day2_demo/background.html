@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>background属性</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<style>
+		div {
+			width: 500px;
+			height: 500px;
+			padding: 20px;
+			border: 20px solid rgba(255, 0, 0, 0.5);
+			
+			background-image: url("../../images/gao.jpg");
+			background-repeat: no-repeat;
+			
+			/*背景图片高度和div一致，宽度自动隐藏一部分*/
+			/*background-size: cover;*/
+			
+			/*背景图片的宽度和div一致，高度自动了*/
+			/*background-size: contain;*/
+			
+			/*设置背景图片的显示的尺寸*/
+			/*background-size: 100px 50px;*/
+			/*设置背景图片的宽度，高度自动*/
+			/*background-size: 100px;*/
+			/*background-size: 100% 100%;*/
+			/*把背景图片占用的padding部分给切掉*/
+			/*background-clip: content-box;*/
+			/*background-clip: border-box;*/
+			/*设置背景图片的时候，从边框外侧开始*/
+			/*background-origin:border-box;*/
+			/*设置背景图片的时候，从padding外侧开始*/
+			/* background-origin: padding-box;*/
+			/*设置背景图片的时候，从内容区域开始*/
+			 /*background-origin: content-box;*/
+		}
+	</style>
+	<body>
+		<div></div>
+		<img src="../../images/gao.jpg" title="高圆圆" alt="高圆圆" />
+	</body>
+</html>

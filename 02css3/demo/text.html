@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css"/>
+</head>
+<body>
+<style>
+    /*p{*/
+        /*/!*text-shadow:10px 10px 0px red,20px 20px 0px yellow;*!/*/
+        /*width: 100px;*/
+        /*height: 100px;*/
+        /*border: 1px solid red;*/
+        /*/!*word-wrap: break-word;*!/*/
+        /*word-break:break-all;*/
+    /*}*/
+    /*自定义字体，这个字体的名字是aaa，引用的字体文件是那个货*/
+    /*如果在页面中使用特殊字体？*/
+    /*1.使用png图片，缺点是需要下载图片，有一定的局限性*/
+    /*2.利用css3的@font-face关键字去自定义字体*/
+        /*缺点是字体文件比较大，耗费流量,兼容性比较难搞*/
+        /*还有一个缺点就是闪一下*/
+    /*有点就是任何地方想要使用这个字体，不需要重复下载*/
+    @font-face {
+        font-family: "AAA";
+        src:url("MFLiHei_Noncommercial-Regular.otf");
+    }
+    p,h3{
+        font-family: "AAA";
+    }
+    /*图片整合*/
+    /*css sprites*/
+    /*雪碧图*/
+    /*图片精灵*/
+
+    /*body{*/
+        /*margin: 0;padding: 0;*/
+    /*}*/
+    /*css reset*/
+
+
+    i:hover{
+        /*font-size: 10em;*/
+        color: red;
+    }
+</style>
+    <!--<p>how are you?I'm fine safssssssssssssssssss ,thank you ,and you?</p>-->
+    <p>我还是爱你们吧！</p>
+    <h3>我到底要不要爱你们！</h3>
+    <i class="fa fa-heart"></i>
+    <i class="fa fa-glass"></i>
+    <i class="fa fa-signing"></i>
+</body>
+</html>

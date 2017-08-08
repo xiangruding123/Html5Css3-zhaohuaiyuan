@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .dola{
+        position: relative;
+    }
+    .head{
+        width: 291px;
+        height: 253px;
+        background: #fff;
+        border: 2px solid #333;
+        border-radius:162px 149px 155px 139px/126px 146px 127px 126px;
+        position: absolute;
+        top: 0;left: 0;
+        z-index: 100;
+    }
+    .norse{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: red;
+        position: absolute;
+        top: 18px;left: 18px;
+        z-index: 1;
+
+
+    }
+    .norse:after{
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+    }
+</style>
+<script>
+//    alert(253-146)
+</script>
+<body>
+    <div class="dola">
+        <div class="head">
+        </div>
+        <div class="norse"></div>
+    </div>
+
+</body>
+</html>
