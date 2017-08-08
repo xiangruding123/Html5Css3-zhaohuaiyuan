@@ -1,0 +1,19 @@
+[
+	{
+		"name": "姜敏京",
+		"birthday": "20000121",
+		"imgUrl": "img/apple.JPEG"
+	}, {
+		"name": "金泫雅",
+		"birthday": "19980506",
+		"imgUrl": "img/pear.JPEG"
+	}, {
+		"name": "全孝盛",
+		"birthday": "20010508",
+		"imgUrl": "img/banana.JPEG"
+	}, {
+		"name": "李知恩",
+		"birthday": "19990619",
+		"imgUrl": "img/orange.JPEG"
+	}
+]

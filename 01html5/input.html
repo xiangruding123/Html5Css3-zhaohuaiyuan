@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+
+	<body>
+		<style>
+			mark {
+				background: none;
+				color: #f60;
+			}
+		</style>
+		<h3>mark</h3>
+		<p>最近<mark>比较烦</mark>比较烦比较烦比较烦比较烦</p>
+		<hr/>
+
+		<h3>progress</h3>
+		<progress id="aaa" max="100" value="50"></progress>
+		<hr/>
+
+		<h3>time</h3>
+		<p>
+			发布时间：
+			<time datetime="2016-6-20T09:00Z" pubdate>9:00</time>
+			<!--datatime是为了seo，搜索引擎看到这里就会知道这是什么时间更新的，-->
+			<!--T为分割符，Z代表UTC，pubdate代表发布日期-->
+		</p>
+		<hr/>
+
+		<h3>ruby</h3>
+		<ruby>
+    人 <rt>maomao</rt>
+</ruby>
+		<hr/>
+
+		<h3>canvas</h3>
+		<canvas id="myCanvas" style="background: #f5f5f5"></canvas>
+		<script type="text/javascript">
+			var c = document.getElementById("myCanvas");
+			var cxt = c.getContext("2d");
+			cxt.fillStyle = "green";
+			cxt.fillRect(0, 0, 100, 75);
+		</script>
+		<hr/>
+
+		<h3>details</h3>
+		<details>
+			<summary>maomao</summary>
+			<p>All pages and graphics on this web site are the property of W3School.</p>
+			<p>All pages and graphics on this web site are the property of W3School.</p>
+			<p>All pages and graphics on this web site are the property of W3School.</p>
+		</details>
+		<hr/>
+
+		<h3>datalist</h3>
+		<input list="cars" />
+		<datalist id="cars">
+    <option value="BMW">
+    <option value="Ford">
+    <option value="Volvo">
+</datalist>
+		<hr/>
+
+		<h3>keygen</h3>
+		<form action="" method="post">
+			用户名：<input type="text" name="usr_name" /> 加密：
+			<keygen name="security" />
+			<input type="submit" />
+		</form>
+
+		<hr/>
+
+		<h3>output</h3>
+		<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+			<input type="range" id="a" value="50">100 +
+			<input type="number" id="b" value="50"> =
+			<output name="x" for="a b"></output>
+		</form>
+		<p><b>注释：</b>Internet Explorer 不支持 output 标签。</p>
+		<hr/>
+		<div data-aa="" data-bb="">1231321312312</div>
+	</body>
+</html>

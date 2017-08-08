@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			img {
+				width: 230px;
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<!--<li><img src="" alt=""/><h4><span></span></h4></li>-->
+		</ul>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script>
+		//跨域请求了！！
+		//http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=eLI3G6sb6ZIPqvWUbZTpGV26Q60deBcc
+
+		$.ajax({
+			url: "http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=eLI3G6sb6ZIPqvWUbZTpGV26Q60deBcc",
+			type: "get",
+			dataType: "json",
+			success: function(data) {
+				console.log(data)
+			}
+		})
+		
+		//使用dataType: "jsonp",实现跨域
+		$.ajax({
+			url: "http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=eLI3G6sb6ZIPqvWUbZTpGV26Q60deBcc",
+			dataType: "jsonp",
+			success: function(data) {
+				console.log(data)
+			}
+		})
+
+		//同源策略   只有在同一域名，同一协议，同一端口的情况才可以进行数据交互
+		//xmlhttprequest
+
+		//静态页面   里面的数据都是写死的
+		//动态页面  里面的部分数据需要动态获取
+		$.ajax({
+			url: "fruit.json",
+			type: "get",
+			dataType: "json",
+			success: function(data) {
+				//console.log(data)
+				var str = '';
+				$(data).each(function(i) {
+					str += "<li><img src='" + this.imgUrl + "' alt=''/><h4>" + this.name + "<span>,出生日期：" + this.birthday + "</span></h4></li>"
+				})
+				$("ul").html(str)
+			}
+		})
+	</script>
+
+</html>

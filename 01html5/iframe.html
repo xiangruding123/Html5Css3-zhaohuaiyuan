@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>iframe标签的简单实现</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<p>iframe 元素会创建包含另外一个文档的内联框架（即行内框架）。</p>
+		<p>在 HTML 4.1 Strict DTD 和 XHTML 1.0 Strict DTD 中，不支持 iframe 元素。</p>
+		<p>一些老的浏览器不支持 iframe。 如果得不到支持，iframe 是不可见的。</p>
+		
+		<hr />
+		<h3>readonly 属性规定输入字段为只读。</h3>
+		<form action="">
+			<input class='header sec' name="attr1" type='text' />
+			<input readonly value="aaa" name="attr2" type="text" />
+			<input type="submit" />
+		</form>
+		<img style="border: 1px solid red;" src="img/iframe.png"/>
+		
+		<iframe src="http://www.baidu.com" name="baidu" frameborder="1" width="375" height="667" scrolling="auto"。></iframe>
+		<h2>scrolling属性：如果设置scrolling="yes"，则该框架始终带滚动条；如果设置scrolling="no"，则该框架没有滚动条，如果框架内的文档超出了框架范围，将被裁切；如果设置scrolling="auto"，则该框架的滚动条取决于包含的文档尺寸，当文档没有超出框架范围，就不显示滚动条，当文档超出框架范围，就显示滚动条。</h2>
+		
+	</body>
+
+</html>

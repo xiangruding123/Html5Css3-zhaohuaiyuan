@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>第一种方法引入</title>
+		<script src="../iconfont/iconfont.js"></script>
+		<style type="text/css">
+		/*页面内设置自己需要的大小规格*/
+		.icon {
+		   width: 2em; 
+		   height: 2em;
+		   vertical-align: -0.15em;
+		   fill: currentColor;
+		   overflow: hidden;
+		}
+		</style>
+	</head>
+	<body>
+		<h2>支持三种形式引入：1、symbol引用；2、font-class引用；3、unicode引用</h2>
+		<hr />
+		<p>1、symbol引用</p>
+		<p>第一步：引入项目下面生成的symbol代码(iconfont.js文件).第二步：加入通用css代码（引入一次就行）.第三步：挑选相应图标并获取类名，应用于页面.</p>
+		<svg class="icon" aria-hidden="true">
+		  <use xlink:href="#icon-fenxiang9"></use>
+		</svg>
+		<svg class="icon" aria-hidden="true">
+		  <use xlink:href="#icon-fenxiang10"></use>
+		</svg>
+		<svg class="icon" aria-hidden="true">
+		  <use xlink:href="#icon-fenxiang8"></use>
+		</svg>
+		<svg class="icon" aria-hidden="true">
+		  <use xlink:href="#icon-fenxiang7"></use>
+		</svg>
+
+	</body>
+</html>

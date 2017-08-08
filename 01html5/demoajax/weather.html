@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>获取个城市的天气预报</title>
+	</head>
+
+	<body>
+		<input id="nnn" type="text" value="北京" />
+		<input id="www" type="button" value="获取天气" />
+		<p id="qqq">正在加载中....</p>
+		<p id="ppp"></p>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script>
+		$.ajax({
+			url: "http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=eLI3G6sb6ZIPqvWUbZTpGV26Q60deBcc",
+			type: "get",
+			dataType: "jsonp",
+			success: function(data) {
+				var str = "";
+				var hour = new Date().getHours();
+				var imgUrl;
+				if(hour > 6 && hour < 18) {
+					imgUrl = data.results[0].weather_data[0].dayPictureUrl;
+				} else {
+					imgUrl = data.results[0].weather_data[0].nightPictureUrl;
+				}
+				var wendu = data.results[0].weather_data[0].date.split("：")[1].split(")")[0];
+				var you = "优";
+				console.log(data.results[0].pm25)
+				if(data.results[0].pm25 > 25) {
+					you = "不优"
+				}
+				str = '<span id="dress">北京</span>：<img src="' + imgUrl + '" alt=""/><span id="wendu">' + wendu + '</span><span id="you">' + you + '</span><span id="pm">' + data.results[0].pm25 + '</span>';
+
+				$("#ppp").html(str);
+				$("#qqq").hide();
+			}
+		})
+
+		$("#www").click(function() {
+			$("#qqq").show();
+			$("#ppp").html("")
+			var val = $("#nnn").val();
+			$.ajax({
+				url: "http://api.map.baidu.com/telematics/v3/weather?location=" + val + "&output=json&ak=eLI3G6sb6ZIPqvWUbZTpGV26Q60deBcc",
+				dataType: "jsonp",
+				success: function(data) {
+					console.log(data)
+					var str = "";
+					var hour = new Date().getHours();
+					var imgUrl;
+					if(hour > 6 && hour < 18) {
+						imgUrl = data.results[0].weather_data[0].dayPictureUrl;
+					} else {
+						imgUrl = data.results[0].weather_data[0].nightPictureUrl;
+					}
+					var wendu = data.results[0].weather_data[0].date.split("：")[1].split(")")[0];
+					var you = "优";
+					console.log(data.results[0].pm25)
+					if(data.results[0].pm25 > 25) {
+						you = "不优"
+					}
+					str = '<span id="dress">' + val + '</span>：<img src="' + imgUrl + '" alt=""/><span id="wendu">' + wendu + '</span><span id="you">' + you + '</span><span id="pm">' + data.results[0].pm25 + '</span>';
+
+					$("#ppp").html(str)
+					$("#qqq").hide();
+				}
+			})
+		})
+	</script>
+
+</html>
