@@ -1,0 +1,17 @@
+[
+  {
+    "goodsid":"1",
+    "name":"苹果",
+    "imgUrl":"img/apple.JPEG"
+  },
+  {
+    "goodsid":"2",
+    "name":"香蕉",
+    "imgUrl":"img/banana.JPEG"
+  },
+  {
+    "goodsid":"3",
+    "name":"橘子",
+    "imgUrl":"img/orange.JPEG"
+  }
+]

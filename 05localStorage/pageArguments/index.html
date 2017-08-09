@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+	</body>
+	<script src="jquery.js"></script>
+	<script>
+		//    $.ajax({
+		//        url:"fruit.json",
+		//        success:function(data){
+		//            var str='';
+		//            $(data).each(function(){
+		//                str+='<button data-id="'+this.goodsid+'">'+this.name+'</button>'
+		//            })
+		//            $("body").html(str);
+		//        }
+		//    })
+		//    $("body").delegate("button","click",function(){
+		//        var id=$(this).attr("data-id");
+		//        localStorage.goodsid=id;
+		//        location.href="detail.html";
+		//    })
+
+		$.ajax({
+			url: "fruit.json",
+			success: function(data) {
+				var str = '';
+				$(data).each(function() {
+					str += "<a href='detail.html?id=" + this.goodsid + "'>" + this.name + "</a>"
+				})
+				$("body").html(str);
+			}
+		})
+	</script>
+
+</html>

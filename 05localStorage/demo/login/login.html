@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		用户名：<input id="name" type="text" /><br/> 昵称：
+		<input id="nackName" type="text" /><br/> 密码：
+		<input id="pass" type="password" /><br/>
+		<button>login</button>
+	</body>
+	<script src="jquery.js"></script>
+	<script>
+		$("button").click(function() {
+			var obj = {};
+			obj.name = $("#name").val();
+			obj.nackName = $("#nackName").val();
+			obj.pass = $("#pass").val();
+			localStorage.user = JSON.stringify(obj);
+			location.href = "index.html"
+		})
+	</script>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			/*1vh=屏幕高度的百分之1*/
+			/*1vw=屏幕宽度的百分之1*/
+			height: 100vh;
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: space-between;
+		}
+		
+		header h3 {
+			text-align: center;
+		}
+		
+		section {
+			flex-grow: 1;
+			background: #fff;
+			overflow: scroll;
+		}
+		
+		header,
+		footer {
+			flex-grow: 0;
+			border: 1px solid #333;
+		}
+	</style>
+
+	<body>
+		<header>
+			<h3>书名</h3>
+		</header>
+		<section>
+			<p>
+
+			</p>
+		</section>
+		<footer>
+			<button id="sf">A-</button>
+			<button id="bf">A+</button>
+			<input id="fc" type="color" />
+			<input id="bc" type="color" />
+			<button id="prev">上一章</button>
+			<button id="next">下一章</button>
+		</footer>
+	</body>
+	<script src="jquery.js"></script>
+	<script>
+		var pageNum = localStorage.pageNum ? localStorage.pageNum : 1;
+
+		function showTxt(num) {
+			$.ajax({
+				url: "txt.json",
+				dataType: "json",
+				success: function(data) {
+					if(num > data.length) {
+						alert("看完啦");
+						pageNum = data.length;
+						localStorage.pageNum = pageNum;
+						return
+					}
+					if(num < 1) {
+						alert("看完啦");
+						pageNum = 1;
+						localStorage.pageNum = pageNum;
+						return
+					}
+					var content = data[num - 1].content;
+					$("section p").html(content);
+					localStorage.pageNum = pageNum;
+				}
+			})
+		}
+		showTxt(pageNum);
+		$("#next").click(function() {
+			pageNum++;
+			showTxt(pageNum);
+		})
+		$("#prev").click(function() {
+			pageNum--;
+			showTxt(pageNum);
+		})
+
+		var userObj = localStorage.user ? JSON.parse(localStorage.user) : {
+			fontSize: 16,
+			color: "#333",
+			bgColor: "#fff"
+		};
+
+		function setStyle(obj) {
+			$("section").css({
+				color: obj.color,
+				fontSize: obj.fontSize,
+				backgroundColor: obj.bgColor
+			})
+		}
+		setStyle(userObj);
+		$("#bf").click(function() {
+			var fontsize = userObj.fontSize;
+			fontsize++;
+			userObj.fontSize = fontsize;
+			localStorage.user = JSON.stringify(userObj)
+			setStyle(userObj)
+		})
+		$("#sf").click(function() {
+			var fontsize = userObj.fontSize;
+			fontsize--;
+			if(fontsize < 12) {
+				fontsize = 12;
+			}
+			userObj.fontSize = fontsize;
+			localStorage.user = JSON.stringify(userObj)
+			setStyle(userObj)
+		})
+		$("#fc").change(function() {
+			var color = $(this).val();
+			userObj.color = color;
+			localStorage.user = JSON.stringify(userObj);
+			setStyle(userObj);
+		})
+		$("#bc").change(function() {
+			var color = $(this).val();
+			userObj.bgColor = color;
+			localStorage.user = JSON.stringify(userObj);
+			setStyle(userObj);
+		})
+	</script>
+
+</html>

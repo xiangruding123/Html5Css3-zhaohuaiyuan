@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<header></header>
+
+	</body>
+	<script src="jquery.js"></script>
+	<script>
+		var user = localStorage.user;
+		if(!user) {
+			var str = "<a href='login.html'>请登录</a>"
+			$("header").html(str)
+		} else {
+			var userObj = JSON.parse(user);
+			var str = "<p>欢迎" + userObj.nackName + "回来！<button>退出登陆</button></button></p>"
+			$("header").html(str)
+			$("header button").click(function() {
+				localStorage.removeItem("user");
+				var str = "<a href='login.html'>请登录</a>"
+				$("header").html(str)
+			})
+		}
+	</script>
+
+</html>
