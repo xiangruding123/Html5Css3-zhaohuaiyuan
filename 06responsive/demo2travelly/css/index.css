@@ -1,150 +1,167 @@
-
-/*reset*/
-ul,li,.container,.container-fluid,.row{
-    margin: 0;padding: 0;
+.container,.container-fluid,.row{
+    margin: 0 auto;padding: 0;
+}
+li{
     list-style: none;
 }
-.container,.container-fluid{
-    margin: 0 auto;
-}
 
-
-
-/*banner部分开始*/
-.bannerImg{
-    width: 100%;
-}
 #banner{
     position: relative;
-    /*border-top: 1px solid rgba(0,0,0,0);*/
+}
+#bannerImg{
+    width: 100%;
 }
 #banner header{
-    margin-top: 2vw;
-    position: relative;
-    z-index: 1000;
-}
-#banner .banner_con{
     position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    top: 10px;
+    left: 0;right: 0;
+    margin: 0 auto;
 }
-
-#banner .bignav ul{
+#banner #bNav ul{
     display: flex;
     justify-content: space-between;
 }
-#banner .bignav li{
-    color: #fff;
-    cursor: pointer;
-}
-#navBtn{
-    font-size: 3vw;
+#banner #bNav li{
     color: #fff;
 }
-#banner .smallnav{
-    width: 100vw;
-    height: 100vh;
-    background: #333;
-    position: absolute;
-    top: 0;
-    z-index: 999;
-    display: none;
+#banner .logoBox{
+    position: relative;
+    z-index: 1001;
+}
+#banner .logoBox img{
+    width: 100%;
+    max-width: 150px;
+    min-width: 75px;
+}
+#banner .sNavBtn{
+    padding-right: 10px;
+    color: #fff;
+    position: relative;
+    z-index: 1001;
 }
 
-#banner .smallnav li{
-    padding: 5vw 0;
+
+#sNav{
+    position: absolute;
+    top: -10px;
+    height: 100vh;
+    padding-top: 10px;
+    width: 100vw;
+    background: #333;
+    z-index: 1000;
+    display: none;
+    overflow: hidden;
+}
+
+#sNav ul{
+    width: 100%;
+    margin: 0;padding: 0;
+    padding-top: 50px;
+
+}
+#sNav ul li{
+    float: none!important;
+    width: 100%;
+    padding: 20px 0;
     text-align: center;
     color: #fff;
 }
-#banner .smallnav ul{
-    margin-top: 10vh;
-}
-#banner .bannerCenter{
-    margin-top: 14vw;
-}
-#banner .bannerCenter h1{
-    font-size: 5vw;
-    color: #fff;
-}
 
-#banner .myform{
-    padding: 0;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
-    margin-top: 1vw;
+
+
+#banner article{
+    /*background: red;*/
+    width: 100%;
+    position: absolute;
+    top: 16vw;
+/**/
 }
-#banner .myform input,#banner .myform button{
-    padding: 5px;
+#banner article h1{
+    color: #fff;
+    font-size:5vw;
+    text-align: center;
+}
+#banner article form{
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+#banner form .row *{
+    padding: 5px 0;
     border: none;
 }
-#banner .myform button{
+#banner form button{
     background: #f60;
     color: #fff;
 }
-
-#banner .mysform{
+#banner .sForm{
     position: absolute;
-    right: 1.5vw;
-    bottom: 1.5vw;
+    right: 10px;
+    bottom: 10px;
 }
-#banner .mysform span{
-    color: #fff;
-}
-#banner .mysform input{
-    width: 0vw;
+#banner .sForm input{
     background: none;
     border: none;
-    outline: none;
     border-bottom: 1px dashed #fff;
+    outline: none;
     color: #fff;
-    visibility: hidden;
-
-    transition: all 0.3s ;
+    width: 0vw;
+    transition: all 0.3s;
 }
-/*banner部分结束*/
+#banner .sForm span{
+    color: #fff;
+}
 
-
-
-/*news部分开始*/
 #news{
-    border-top: 1px solid #cbcbcb;
+    padding:0 5vw;
     position: relative;
+}
+#news>p{
+    color: #9c9c9c;
+}
+#news>h5{
+    margin-top: 50px;
+}
+#news ul{
+    padding: 0!important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+#news ul li{
+    width: 100%;
+}
+#news ul li img{
+    width: 100%;
+
+}
+#news li .liTop{
+    position: relative;
+
+}
+#news li .liTop span{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #fff;
 }
 #news .bg{
+    width: 100vw;
+    height: 150px;
+    background: #b2b2b2;
     position: absolute;
     top: 0;
-    width: 100%;
-    height: 20vh;
-    background: #cbcbcb;
+    left: 0;
     z-index: -1;
 }
-#news .top{
-    position: relative;
+@media all and (min-width: 768px){
+    #news ul li{
+        width: 45%;
+    }
 }
-#news .top img{
-    width: 100%;
+@media all and (min-width: 992px){
+    #news ul li{
+        width: 23%;
+    }
 }
-#news .top p{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: #fff;
-    padding: 0 10px;
-}
-#news .newsBox{
-    margin-top: 5vw;
-}
-#news .newsBox>h4{
-    padding-left: 15px;
-}
-#news .newsBox>p{
-    padding-left: 15px;
-    color: #999;
-}
-#news .newsBox li>p{
-    padding-bottom: 10px;
-    border-bottom: 1px solid #999;
-}
-/*news部分结束*/

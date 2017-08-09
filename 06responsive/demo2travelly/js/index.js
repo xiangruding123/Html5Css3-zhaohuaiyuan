@@ -1,32 +1,19 @@
 /**
- * Created by Administrator on 2016/8/29 0029.
+ * Created by Administrator on 2016/9/26 0026.
  */
-
-//实现点击右上角按钮让小屏下的nav出现
-$("#navBtn").click(function(){
-    $(".smallnav").slideToggle()
+$(".sNavBtn").click(function(){
+    $("#sNav").slideToggle()
 })
 
-//实现点击小屏nav中的li，让nav消失
-$(".smallnav li").click(function(){
-    $(".smallnav").slideToggle();
-})
 
-//实现小屏下搜索功能
-var searchFlag=true;
-$(".searchBtn").click(function(){
-    if(searchFlag){
-        $(".mysform input").css({
-            visibility:"visible",
-            width:"25vw"
-        });
-        searchFlag=false;
+var sFromFlag=true;
+$("#sFormBtn").click(function(){
+    if(sFromFlag){
+        $(".sForm input").css("width","30vw");
+        sFromFlag=false;
     }else{
-        $(".mysform input").css({
-            visibility:"hidden",
-            width:"0vw"
-        });
-        searchFlag=true;
+        $(".sForm input").css("width","0");
+        sFromFlag=true;
     }
 
 })

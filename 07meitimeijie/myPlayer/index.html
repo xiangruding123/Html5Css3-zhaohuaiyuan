@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+
+	<body>
+		<audio src=""></audio>
+		<header>
+			<h3>Music</h3>
+			<span id="listBtn" class="glyphicon glyphicon-list"></span>
+			<ul class="musicList">
+				<li class="musicItem on">
+					<p>第一首歌</p>
+					<p class="musicAni pull-right">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</p>
+				</li>
+			</ul>
+		</header>
+		<section>
+			<img src="img/1.jpg" alt="" />
+		</section>
+		<footer class="container-fluid">
+			<p class="timeValue">
+				<span class="nowTime pull-left">00:00</span>
+				<span class="allTime pull-right">00:00</span>
+			</p>
+			<p class="progressBox">
+				<span class="progressValue"></span>
+				<span class="progressPoint"></span>
+			</p>
+			<div class="row">
+				<!--glyphicon-pause-->
+				<!--glyphicon-repeat 单曲-->
+				<!--glyphicon-random 随机-->
+				<!--glyphicon-retweet 列表-->
+				<div id="prevBtn" class="col-xs-2 glyphicon glyphicon-backward"></div>
+				<div id="playBtn" class="col-xs-2 glyphicon glyphicon-play"></div>
+				<div id="nextBtn" class="col-xs-2 glyphicon glyphicon-forward"></div>
+				<div class="col-xs-2 glyphicon glyphicon-retweet"></div>
+				<div class="col-xs-1 glyphicon glyphicon-volume-up"></div>
+				<div class="col-xs-3 volBox">
+					<p class="volumnBox">
+						<span class="volumnValue"></span>
+						<span class="volumnPoint"></span>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/index.js"></script>
+
+</html>
