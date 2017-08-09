@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		@keyframes rota {
+			0% {
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+			25% {
+				transform: rotateX(10deg) rotateY(90deg);
+			}
+			50% {
+				transform: rotateX(0deg) rotateY(180deg);
+			}
+			75% {
+				transform: rotateX(-10deg) rotateY(270deg);
+			}
+			100% {
+				transform: rotateX(0deg) rotateY(360deg);
+			}
+		}
+		
+		 :root {
+			background: #333;
+		}
+		
+		body {
+			perspective: 5000px;
+		}
+		
+		.stage {
+			width: 1200px;
+			height: 250px;
+			/*border: 1px solid red;*/
+			margin: 200px auto 0px;
+			transform-style: preserve-3d;
+			position: relative;
+			/*animation: rota 10s linear 0s infinite;*/
+		}
+		
+		.stage div {
+			width: 200px;
+			height: 250px;
+			position: absolute;
+			overflow: hidden;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		
+		.stage div img {
+			width: 100%;
+		}
+		
+		.stage div:first-child {}
+	</style>
+
+	<body>
+		<div class="stage">
+			<div><img src="../../images/gao.jpg" alt="" /></div>
+			<div><img src="../../images/jiang.JPEG" alt="" /></div>
+			<div><img src="../../images/jin.JPEG" alt="" /></div>
+			<div><img src="../../images/li.JPEG" alt="" /></div>
+			<div><img src="../../images/mg.JPG" alt="" /></div>
+			<div><img src="../../images/gao5.jpg" alt="" /></div>
+			<div><img src="../../images/piao.JPEG" alt="" /></div>
+			<div><img src="../../images/quan.JPEG" alt="" /></div>
+			<div><img src="../../images/shu.jpg" alt="" /></div>
+			<div><img src="../../images/wang.jpg" alt="" /></div>
+			<div><img src="../../images/xu.JPEG" alt="" /></div>
+			<div><img src="../../images/zheng.JPEG" alt="" /></div>
+		</div>
+	</body>
+	<script src="../jquery.js"></script>
+	<script>
+		$(".stage div").each(function(i) {
+			$(this).css({
+				transform: "rotateY(" + (i * 30) + "deg) translateZ(500px)"
+			})
+		})
+	</script>
+
+</html>

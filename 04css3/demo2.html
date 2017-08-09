@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		
+		ul {
+			width: 1200px;
+			height: 150px;
+			border: 1px solid red;
+			margin: 100px auto;
+			transform-style: preserve-3d;
+		}
+		
+		ul li {
+			perspective: 2000px;
+			width: 10%;
+			height: 150px;
+			float: left;
+			transform: rotateY(60deg);
+		}
+	</style>
+
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+	<script src="../jquery.js"></script>
+	<script>
+		function randomColor(o) {
+			var op = o || 0.8;
+			var num1 = Math.floor(Math.random() * 256);
+			var num2 = Math.floor(Math.random() * 256);
+			var num3 = Math.floor(Math.random() * 256);
+			var str = "rgba(" + num1 + "," + num2 + "," + num3 + "," + op + ")";
+			return str;
+		}
+		$("li").each(function() {
+			$(this).css({
+				background: randomColor()
+			})
+		})
+	</script>
+
+</html>

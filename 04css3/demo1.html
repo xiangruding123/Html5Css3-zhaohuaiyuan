@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		@keyframes rota {
+			from {
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+			to {
+				transform: rotateX(360deg) rotateY(360deg);
+			}
+		}
+		
+		body {
+			perspective: 5000px;
+		}
+		
+		.stage {
+			/*perspective-origin: 0% 0%;*/
+			width: 300px;
+			height: 300px;
+			/*border: 1px solid red;*/
+			margin: 50px auto;
+			transform-style: preserve-3d;
+			position: relative;
+			transform: rotateX(0deg) rotateY(0deg);
+			animation: rota 2s linear 0s infinite;
+		}
+		
+		.stage:hover {
+			animation-play-state: paused;
+		}
+		
+		.stage div {
+			/*perspective: 2000px;*/
+			width: 80%;
+			height: 80%;
+			position: absolute;
+			left: 10%;
+			top: 10%;
+			background: rgba(0, 0, 0, 0.5);
+			text-align: center;
+			line-height: 240px;
+			font-size: 3em;
+			color: #fff;
+			transition: all 0.5s;
+			/*backface-visibility: hidden;*/
+		}
+		
+		.stage div:first-of-type {
+			transform: translateZ(120px);
+		}
+		
+		.stage div:nth-of-type(2) {
+			transform: translateZ(-120px) rotateY(180deg);
+		}
+		/*只要旋转了之后，整个坐标系就都会变化*/
+		
+		.stage div:nth-of-type(3) {
+			transform: rotateX(90deg) translateZ(120px);
+		}
+		
+		.stage div:nth-of-type(4) {
+			transform: rotateX(-90deg) translateZ(120px);
+		}
+		
+		.stage div:nth-of-type(5) {
+			transform: rotateY(-90deg) translateZ(120px);
+		}
+		
+		.stage div:nth-of-type(6) {
+			transform: rotateY(90deg) translateZ(120px);
+		}
+		
+		.stage:hover div:first-child {
+			transform: translateZ(240px);
+		}
+		
+		.stage:hover div:nth-child(2) {
+			transform: translateZ(-240px) rotateY(180deg);
+		}
+		
+		.stage:hover div:nth-of-type(3) {
+			transform: rotateX(90deg) translateZ(240px);
+		}
+		
+		.stage:hover div:nth-of-type(4) {
+			transform: rotateX(-90deg) translateZ(240px);
+		}
+		
+		.stage:hover div:nth-of-type(5) {
+			transform: rotateY(-90deg) translateZ(240px);
+		}
+		
+		.stage:hover div:nth-of-type(6) {
+			transform: rotateY(90deg) translateZ(240px);
+		}
+	</style>
+
+	<body>
+		<div class="stage">
+			<div>正面</div>
+			<div>背面</div>
+			<div>上面</div>
+			<div>下面</div>
+			<div>左面</div>
+			<div>右面</div>
+		</div>
+	</body>
+	<script src="../jquery.js"></script>
+	<script>
+		function randomColor(o) {
+			var op = o || 0.8;
+			var num1 = Math.floor(Math.random() * 256);
+			var num2 = Math.floor(Math.random() * 256);
+			var num3 = Math.floor(Math.random() * 256);
+			var str = "rgba(" + num1 + "," + num2 + "," + num3 + "," + op + ")";
+			return str;
+		}
+		$(".stage div").each(function() {
+			$(this).css({
+				background: randomColor()
+			})
+		})
+	</script>
+
+</html>

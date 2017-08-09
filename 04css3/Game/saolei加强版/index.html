@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/boom.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+	</head>
+
+	<body>
+		<header id="head">
+			<button id="play">开始游戏</button>
+		</header>
+		<section>
+			<header>
+				<p>游戏时间：<span id="time">00:00</span></p>
+				<p>雷数：<span id="leiNum">0</span></p>
+			</header>
+			<article>
+				<div class="ze"></div>
+				<div class="alertBox animated">
+					<h4>你输啦</h4>
+					<p>
+						<button id="again">重新开始？</button>
+						<button id="closeGame">关闭游戏？</button>
+					</p>
+				</div>
+			</article>
+		</section>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/boom.js"></script>
+	<script>
+		//    实例化游戏对象
+		var game = new Boom();
+		$("#play").click(function() {
+			if($(this).html() == "开始游戏") {
+				game.play();
+				$(this).html("暂停游戏");
+			} else if($(this).html() == "暂停游戏") {
+				game.pause();
+				$(this).html("继续游戏");
+			} else if($(this).html() == "继续游戏") {
+				game.continue();
+				$(this).html("暂停游戏");
+			}
+		})
+		$("#again").click(function() {
+			game.restart();
+		})
+		$("#closeGame").click(function() {
+			window.close();
+		})
+	</script>
+
+</html>

@@ -1,0 +1,42 @@
+body,p,header,section,article,span{
+    margin: 0;padding: 0;
+}
+
+#head{
+    padding: 10px 0;
+    text-align: center;
+}
+#head button{
+    padding: 10px;
+    border-radius: 5px;
+    background: #74faff;
+    outline: none;
+}
+
+section{
+    width: 550px;
+    height: 600px;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+section header{
+    height: 50px;
+}
+section header p{
+    float: left;
+    height: 50px;
+    line-height: 50px;
+}
+section header p:last-child{
+    float: right;
+}
+section article{
+    width: 550px;
+    height: 550px;
+    background: #eee;
+}
+section article span{
+    float: left;
+    text-align: center;
+    color: #fff;
+}
