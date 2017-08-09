@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<!--动画，如果想使用动画，需要先去创造一个动画-->
+
+		<style>
+			/*需要用@keyframes关键字来创建动画，后面跟的是动画的名字*/
+			/*里面要写状态的改变情况*/
+			/*1.from和to，后面跟的大括号里面要写css样式*/
+			/*2.百分比 相对于动画执行的时间  内部可以切割成多个状态的改变*/
+			
+			@keyframes aniName {
+				/*from{*/
+				/*transform: translate(0px,0px);*/
+				/*}*/
+				/*to{*/
+				/*transform:translate(300px,150px)*/
+				/*}*/
+				0% {
+					transform: translate(0px, 0px);
+				}
+				100% {
+					transform: translate(300px, 150px)
+				}
+			}
+			/*过渡是需要某个条件去触发，而且每次过渡的状态取决于咱们条件的设置，每次都可以不一样*/
+			/*动画不需要条件触发，只要设置上animation属性，就可以执行*/
+			/*动画怎么样执行，取决于怎么定义动画*/
+			
+			div {
+				width: 150px;
+				height: 150px;
+				background: #f60;
+				border-radius: 10px;
+				/*要设置的动画名字*/
+				animation-name: aniName;
+				/*动画一个周期执行的时间*/
+				animation-duration: 1s;
+				/*动画执行的速度曲线*/
+				animation-timing-function: ease;
+				/*动画延迟执行的时间*/
+				animation-delay: 0s;
+				/*动画执行的次数 n infinite(无限次)*/
+				animation-iteration-count: 1;
+				/*控制动画是否逆向播放 alternate  动画执行次数至少两次*/
+				animation-direction: alternate;
+				/*控制动画暂停和播放 running paused 一般通过事件去控制*/
+				/*animation-play-state: paused;*/
+				/*控制动画播放完是否停留在动画结束的状态*/
+				animation-fill-mode: forwards;
+			}
+			/*div:hover{*/
+			/*animation-play-state: paused;*/
+			/*}*/
+		</style>
+
+	</head>
+
+	<body>
+		<div></div>
+	</body>
+
+</html>

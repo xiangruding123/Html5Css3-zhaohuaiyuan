@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		/*边距重叠，边距合并，边距塌陷*/
+		
+		div {
+			width: 150px;
+			height: 150px;
+			border: 1px solid red;
+			float: left;
+		}
+		
+		.a {
+			/*margin-bottom: 100px;*/
+			margin-right: 50px;
+		}
+		
+		.b {
+			/*margin-top: 80px;*/
+			margin-left: 100px;
+		}
+	</style>
+
+	<body>
+		<div class="a"></div>
+		<div class="b"></div>
+	</body>
+	<script>
+		var str = "?a=1&b=2"
+		alert(str.substr(1))
+	</script>
+
+</html>

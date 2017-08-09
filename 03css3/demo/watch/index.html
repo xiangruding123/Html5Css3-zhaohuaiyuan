@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="watchBox"></div>
+		<div class="a"></div>
+	</body>
+	<script src="jquery.js"></script>
+	<script src="watch.js"></script>
+	<script>
+		var myWatch = new Watch(300, "#watchBox");
+		//    myWatch.bgColor="red";
+		myWatch.init();
+
+		var myWatchTwo = new Watch(300, ".a");
+		myWatchTwo.init();
+	</script>
+
+</html>

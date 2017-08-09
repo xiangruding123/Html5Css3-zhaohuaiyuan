@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div {
+			width: 150px;
+			height: 150px;
+			background: #f60;
+			/*不影响页面布局*/
+			/*基于原来初始的位置*/
+			/*x轴的正方向向右，y轴的正方向向下*/
+			/*第一个参数是x轴的偏移距离，第二个参数是y轴的偏移距离*/
+			/*transform: translate(50px,30px);*/
+			/*这个参数代表x轴的偏移距离，y轴不偏移*/
+			transform: translate(50px);
+			/*float: left;*/
+		}
+		/*div:first-child{*/
+		/*margin-left: 10px;*/
+		/*}*/
+	</style>
+
+	<body>
+		<div></div>
+		<!--<div></div>-->
+		<input id="inp" type="button" value="aaa" />
+		<!--<img src="" data-id="aa" alt=""/>-->
+		<input id="aaa" min="0" type="range" max="20" />
+	</body>
+	<script src="jquery.js"></script>
+	<script>
+		//    img src
+		//    a    href
+		//    div  background
+		//    $("img").attr("src","1.jpg")
+		//    $("#aaa").prop("max","50");
+		//    $("#aaa").change(function(){
+		//        console.log($(this).val())
+		//    })
+		//    img src  data-id
+		//    $("img").prop("src","sdsad")
+		//    $("#inp").click(function(){
+		//        $("div").css({
+		//            transform:"translate(100px)"
+		//        })
+		//    })
+	</script>
+
+</html>

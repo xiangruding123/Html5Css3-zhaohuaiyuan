@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		body,
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none
+		}
+		
+		.aaa {
+			width: 33.333333333%;
+			height: 300px;
+			float: left;
+			/*background: red;*/
+			overflow: hidden;
+			position: relative;
+		}
+		
+		img {
+			transition: all 0.5s;
+			height: 100%;
+		}
+		
+		.aaa:hover img {
+			transform: translate(-50px);
+			opacity: 0.6;
+		}
+		
+		.aaa:first-child h2 {
+			color: #fff;
+			position: absolute;
+			left: 10%;
+			bottom: 10%;
+			transition: all 0.5s;
+		}
+		
+		.aaa:first-child:hover h2 {
+			transform: translate(0, -10px);
+		}
+		
+		.aaa:first-child p {
+			color: #fff;
+			position: absolute;
+			left: 10%;
+			bottom: -40px;
+			transition: all 0.5s;
+		}
+		
+		.aaa:first-child:hover p {
+			transform: translate(0, -50px);
+		}
+		/*第二个*/
+		
+		.aaa:nth-child(2) div {
+			width: 150%;
+			height: 300px;
+			background: #fff;
+			position: absolute;
+			bottom: -300px;
+			transform-origin: left top;
+			transition: all 0.5s;
+		}
+		
+		.aaa:nth-child(2):hover div {
+			transform: rotate(-20deg)
+		}
+		
+		.aaa:nth-child(2) ul li {
+			float: left;
+			margin: 0px 10px;
+			transition: all 0.5s;
+		}
+		
+		.aaa:nth-child(2) li:last-child {
+			float: left;
+			margin: 0px 10px;
+			transition-delay: 0.1s;
+		}
+		
+		.aaa:nth-child(2) ul {
+			position: absolute;
+			bottom: -30px;
+			right: 0px;
+		}
+		
+		.aaa:nth-child(2):hover li {
+			transform: translate(0px, -40px);
+		}
+		/*第三个*/
+		
+		.aaa:nth-of-type(3) div {
+			width: 80%;
+			height: 80%;
+			position: absolute;
+			left: 10%;
+			top: -85%;
+			border: 2px solid deeppink;
+			transition: all 0.5s;
+		}
+		
+		.aaa:nth-of-type(3):hover div {
+			top: 10%;
+			transform: rotate(720deg);
+		}
+		/*第四个*/
+		
+		.aaa:nth-child(4) div:first-of-type {
+			width: 90%;
+			height: 80%;
+			border: 1px solid #fff;
+			border-left: none;
+			border-right: none;
+			position: absolute;
+			top: 10%;
+			left: 5%;
+			transition: all 0.5s;
+			transform: rotateY(90deg);
+		}
+		
+		.aaa:nth-child(4):hover div:first-of-type {
+			/*width: 80%;*/
+			/*left: 10%;*/
+			transform: rotateY(0deg);
+		}
+		
+		.aaa:nth-child(4) div:last-of-type {
+			width: 80%;
+			height: 90%;
+			border: 1px solid #fff;
+			border-top: none;
+			border-bottom: none;
+			position: absolute;
+			top: 5%;
+			left: 10%;
+			transition: all 0.5s;
+			transform: rotateX(90deg);
+		}
+		
+		.aaa:nth-child(4):hover div:last-of-type {
+			/*width: 80%;*/
+			/*left: 10%;*/
+			transform: rotateX(0deg);
+		}
+	</style>
+
+	<body>
+		<div class="aaa">
+			<img src="img/pic1.jpg" alt="" />
+			<h2>平移动画1</h2>
+			<p>最简单的平移动画</p>
+		</div>
+		<div class="aaa">
+			<img src="img/pic2.jpg" alt="" />
+			<div></div>
+			<ul>
+				<li>info1</li>
+				<li>info2</li>
+			</ul>
+		</div>
+		<div class="aaa">
+			<img src="img/pic3.jpg" alt="" />
+			<div></div>
+		</div>
+		<div class="aaa">
+			<img src="img/pic3.jpg" alt="" />
+			<div></div>
+			<div></div>
+		</div>
+	</body>
+
+</html>

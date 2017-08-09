@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div {
+			width: 150px;
+			height: 150px;
+			background: #f60;
+			transform: translate(0px);
+			/*/!*需要给哪个属性过度，就写哪个属性*!/*/
+			/*transition-property: all;*/
+			/*/!*这个过渡的过程需要用多少时间就写多少，默认是0，单位是s*!/*/
+			/*transition-duration: 2s;*/
+			/*/!*规定过渡的动画方式（加速度）*!/*/
+			/*transition-timing-function: cubic-bezier(1,0.3,0,0.83);*/
+			/*/!*规定延迟时间*!/*/
+			/*transition-delay: 1s;*/
+			transition: all 2s;
+		}
+	</style>
+
+	<body>
+		<div>
+
+		</div>
+		<button>aaa</button>
+	</body>
+	<script src="jquery.js"></script>
+	<script>
+		$("button").click(function() {
+			$("div").css({
+				transform: "translate(300px)",
+				background: "blue"
+			})
+		})
+	</script>
+
+</html>
