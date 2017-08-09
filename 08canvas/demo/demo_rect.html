@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    canvas{
+        background: #eee;
+        /*width: 500px;*/
+        /*height: 500px;*/
+    }
+</style>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+<script>
+    var ctx=myCanvas.getContext("2d");
+//    x,y:起始坐标点，往右往下绘制一个宽高为width和height的一个矩形
+
+//    想要画一个矩形
+    ctx.rect(100,100,100,100);
+
+//    设置填充的颜色，值为一个颜色值字符串
+//    ctx.fillStyle="red";
+//    用填充的方式画出来
+//    ctx.fill();
+
+//    设置描边的颜色
+     ctx.strokeStyle="red";
+//    设置线条的宽度
+//    ctx.lineWidth=5;
+//    用描边的方式画出来
+    ctx.stroke();
+
+//    用描边的方法画一个矩形
+    ctx.strokeStyle="green";
+    ctx.strokeRect(100,0,100,100);
+
+    ctx.fillRect(100,200,100,100)
+
+
+</script>
+</html>

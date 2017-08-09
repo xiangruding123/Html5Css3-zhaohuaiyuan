@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    canvas{
+        background: #eee;
+        /*width: 500px;*/
+        /*height: 500px;*/
+    }
+</style>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+<script>
+    var ctx=myCanvas.getContext("2d");
+
+
+    ctx.save();
+
+    ctx.rotate(Math.PI/6);
+    ctx.fillStyle="red";
+    ctx.fillRect(200,100,100,100);
+
+    ctx.restore();
+
+    ctx.fillRect(0,0,100,100)
+
+    ctx.save();
+    ctx.beginPath();
+
+
+
+    ctx.closePath();
+    ctx.restore();
+
+</script>
+</html>

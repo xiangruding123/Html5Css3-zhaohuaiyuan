@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    canvas{
+        background: #eee;
+        /*width: 500px;*/
+        /*height: 500px;*/
+    }
+</style>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+<script>
+
+
+//    canvas 是画布 ctx是画笔
+    var ctx=myCanvas.getContext("2d");
+
+    ctx.fillRect(0,0,100,100);
+    var x=0;var y =0;
+    var timer=setInterval(function(){
+        ctx.clearRect(x,y,100,100)
+        x++;y++;
+        if(x>400){
+            clearInterval(timer)
+        }
+        ctx.fillRect(x,y,100,100);
+
+    },30)
+
+</script>
+</html>

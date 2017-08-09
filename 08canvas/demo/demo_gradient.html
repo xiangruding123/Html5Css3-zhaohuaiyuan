@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+canvas{
+    background: #eee;
+}
+</style>
+<body>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+<script>
+    var ctx=myCanvas.getContext("2d");
+//    创建的渐变，其实是一个颜色~，fillstyle、strokeStyle去设置
+//    创建出来的渐变，大小都已经设置好，取用颜色的时候，可能只会取到其中的一部分
+//    第一个参数是渐变开始点，第二个是渐变结束点
+
+//    var lg=ctx.createLinearGradient(0,0,500,500);
+//    lg.addColorStop(0,"red");
+//    lg.addColorStop(1,"blue");
+//    ctx.fillStyle=lg;
+//    ctx.fillRect(100,100,200,200);
+
+
+    var rg=ctx.createRadialGradient(250,250,50,250,250,200);
+    rg.addColorStop(0,"red");
+    rg.addColorStop(1,"blue");
+    ctx.fillStyle=rg;
+
+    ctx.fillRect(0,0,500,500)
+
+</script>
+</html>

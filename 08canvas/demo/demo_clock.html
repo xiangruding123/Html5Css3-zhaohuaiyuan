@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    canvas{
+        /*background: red;*/
+        /*background: #eee;*/
+        /*width: 500px;*/
+        /*height: 500px;*/
+    }
+</style>
+<body>
+    <canvas id="myCanvas" width="300" height="300"></canvas>
+    <button id="btn">截图</button>
+</body>
+<script>
+//    咱们的画笔
+    var ctx=myCanvas.getContext("2d");
+//咱们表的尺寸
+    var canSize=myCanvas.width;
+//PI
+    var pi=Math.PI;
+
+//    画表盘
+    function makeDial(){
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(canSize/2,canSize/2,canSize/2,0,pi*2);
+        ctx.fillStyle="#000";
+        ctx.fill();
+        ctx.closePath();
+        ctx.restore();
+    }
+
+//    画刻度
+    function makeMark(){
+
+        for(var i =0 ;i<60;i++){
+            var w=3;
+            var h=10;
+            if(i%5==0){
+                w=5;
+                h=15;
+            }
+            ctx.save();
+            ctx.beginPath();
+//            把玻璃位移到中心点，因为旋转的时候，要围绕玻璃的左上角
+            ctx.translate(canSize/2,canSize/2);
+//            根据每个刻度的角度去转
+            ctx.rotate(pi/30*i);
+            ctx.lineWidth=w;
+            ctx.strokeStyle="#56ff51";
+            ctx.moveTo(canSize/2-h,0);
+            ctx.lineTo(canSize/2,0);
+            ctx.stroke();
+            ctx.closePath();
+            ctx.restore();
+        }
+    }
+    function pointer(){
+//        30
+        var date=new Date();
+//        获取当前的小时、分钟、秒钟
+        var s=date.getSeconds();
+        var m=date.getMinutes();
+        var h=date.getHours();
+
+//        为了显示当前时间，做的补零处理
+        var xh=h>9?h:"0"+h;
+        var xm=m>9?m:"0"+m;
+        var xs=s>9?s:"0"+s;
+        var str=xh+":"+xm+":"+xs;
+
+//        绘制当前文字时间
+        ctx.save();
+        ctx.font="normal 30px 微软雅黑";
+        ctx.fillStyle="#56ff51";
+        ctx.textBaseline = "top";
+        ctx.textAlign = "center";
+        ctx.fillText(str,canSize/2,canSize/4)
+        ctx.restore();
+
+//        秒针
+
+//        注意，因为在开始时候，每个指针就是水平的，相当于已经转了90度了
+//        在每个指针转的时候应该减去pi/2
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(canSize/2,canSize/2);
+        ctx.rotate(pi/30*s-pi/2);
+        ctx.lineWidth=2;
+        ctx.strokeStyle="#56ff51";
+        ctx.moveTo(0,0);
+        ctx.lineTo(canSize/2-30,0);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+
+
+//        分针
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(canSize/2,canSize/2);
+        ctx.rotate(pi/30*m+pi/1800*s-pi/2);
+        ctx.lineWidth=3;
+        ctx.strokeStyle="#56ff51";
+        ctx.moveTo(0,0);
+        ctx.lineTo(canSize/2-50,0);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+
+
+//       时针
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(canSize/2,canSize/2);
+        ctx.rotate(pi/6*h+pi/360*m+pi/21600*s-pi/2);
+        ctx.lineWidth=4;
+        ctx.strokeStyle="#56ff51";
+        ctx.moveTo(0,0);
+        ctx.lineTo(canSize/2-60,0);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+
+
+
+
+    }
+    makeDial();
+    makeMark();
+    pointer();
+    setInterval(function(){
+        ctx.clearRect(0,0,canSize,canSize);
+        makeDial();
+        makeMark();
+        pointer();
+    },1000)
+
+
+btn.onclick=function(){
+    var w=window.open(myCanvas.toDataURL("image/png"));
+}
+
+</script>
+</html>

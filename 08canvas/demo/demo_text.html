@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    canvas{
+        background: #eee;
+        /*width: 500px;*/
+        /*height: 500px;*/
+    }
+</style>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+<script>
+    var ctx=myCanvas.getContext("2d");
+
+    ctx.beginPath();
+    ctx.font="italic 50px 微软雅黑";
+    //顺序不能改
+    ctx.fillStyle="red";
+//    或者
+    ctx.strokeStyle="blue";
+    ctx.textBaseline = "top";
+//    设置垂直对齐方式
+    ctx.textAlign = "left";
+//    设置水平对齐方式
+//    ctx.fillText("1617",100,100)
+    ctx.strokeText("1617",100,100)
+    ctx.closePath()
+
+    ctx.beginPath();
+    ctx.moveTo(0,100);
+    ctx.lineTo(100,100);
+    ctx.stroke();
+    ctx.closePath();
+
+</script>
+</html>

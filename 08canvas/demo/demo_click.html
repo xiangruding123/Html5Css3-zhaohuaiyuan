@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body{margin: 0;padding: 0;}
+    canvas{
+        background: #eee;
+        /*width: 500px;*/
+        /*height: 500px;*/
+    }
+    .ze{width: 500px;height: 500px;position: absolute;left: 0;top: 0;background: rgba(0,0,0,0.1)}
+</style>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+<script src="jquery.js"></script>
+<script>
+    var ctx=myCanvas.getContext("2d");
+    ctx.rect(100,100,100,100);
+    ctx.fill();
+    var canvasFlag=false;
+    var ox=100;
+    var oy=100;
+    var cx;
+    var cy;
+    var mx=100;
+    var my=100;
+    $("canvas").mousedown(function(e){
+        ox= mx;
+        oy= my;
+        var x=Number(e.offsetX);
+        var y=Number(e.offsetY);
+        if(x>ox&&x<ox+100&&y>oy&&y<oy+100){
+            cx=x;
+            cy=y;
+            canvasFlag=true;
+        }
+    })
+    $("canvas").mousemove(function(e){
+        if(!canvasFlag){
+            return false;
+        }
+        var x=Number(e.offsetX);
+        var y=Number(e.offsetY);
+            var nx=x-cx;
+            var ny=y-cy;
+            ctx.clearRect(0,0,500,500);
+            ctx.fillRect(nx+ox,ny+oy,100,100);
+            mx=nx+ox;
+            my=ny+oy;
+
+    })
+    $("canvas").mouseup(function(){
+        canvasFlag=false;
+    })
+
+
+
+
+</script>
+</html>

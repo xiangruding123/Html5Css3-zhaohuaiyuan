@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    canvas{
+        background: #eee;
+        /*width: 500px;*/
+        /*height: 500px;*/
+    }
+</style>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+<script>
+    var ctx=myCanvas.getContext("2d");
+
+//    画的所有的图形，都是以一条一条的路径去画的
+//    当你收尾在一块也会闭合并且结束路径
+
+//    所以画的时候要注意一个事情，每画一个部分就给它加一个beginpath和closepath
+//    线段连起来的图形的时候，最好把结束点和开始点连起来
+
+
+//    ctx.beginPath();
+//    ctx.moveTo(0,0);
+//    ctx.lineTo(100,100);
+//    ctx.lineTo(100,200);
+//    ctx.lineTo(0,0);
+//    ctx.fill();
+//    ctx.closePath();
+
+//    ctx.beginPath();
+//    ctx.moveTo(100,200)
+//    ctx.lineTo(500,500);
+//    ctx.fillStyle="red"
+////    ctx.stroke();
+//    ctx.fill();
+//    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(50,100);
+    ctx.lineTo(150,100);
+    ctx.lineWidth=10;
+//    ctx.lineCap="round"
+//    ctx.lineCap="square"
+    ctx.stroke();
+    ctx.closePath();
+
+
+</script>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		canvas {
+			display: block;
+			border: 1px solid #333;
+			/*background: #eee;*/
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+		}
+	</style>
+
+	<body>
+		<canvas id="myCanvas" width="2000" height="2000"></canvas>
+	</body>
+	<script>
+		var ctx = myCanvas.getContext("2d");
+		var canW = myCanvas.width;
+		var data = [{
+				color: "#6ABFD0",
+				p: [{
+					x: 0,
+					y: 0
+				}, {
+					x: canW / 2,
+					y: canW / 2
+				}, {
+					x: 0,
+					y: canW
+				}]
+			},
+			{
+				color: "#CAFF68",
+				p: [{
+					x: 0,
+					y: 0
+				}, {
+					x: canW / 2,
+					y: canW / 2
+				}, {
+					x: canW,
+					y: 0
+				}]
+			},
+			{
+				color: "#F790CE",
+				p: [{
+					x: 0,
+					y: canW
+				}, {
+					x: canW / 4,
+					y: canW * 3 / 4
+				}, {
+					x: canW / 2,
+					y: canW
+				}]
+			},
+			{
+				color: "#A594BF",
+				p: [{
+					x: canW / 2,
+					y: canW / 2
+				}, {
+					x: canW / 4,
+					y: canW * 3 / 4
+				}, {
+					x: canW / 2,
+					y: canW
+				}, {
+					x: canW * 3 / 4,
+					y: canW * 3 / 4
+				}]
+			},
+			{
+				color: "#FAF61D",
+				p: [{
+					x: canW / 2,
+					y: canW / 2
+				}, {
+					x: canW * 3 / 4,
+					y: canW * 3 / 4
+				}, {
+					x: canW * 3 / 4,
+					y: canW / 4
+				}]
+			},
+			{
+				color: "#F13E65",
+				p: [{
+					x: canW * 3 / 4,
+					y: canW * 3 / 4
+				}, {
+					x: canW * 3 / 4,
+					y: canW / 4
+				}, {
+					x: canW,
+					y: 0
+				}, {
+					x: canW,
+					y: canW / 2
+				}]
+			},
+			{
+				color: "#F6C92A",
+				p: [{
+					x: canW,
+					y: canW / 2
+				}, {
+					x: canW,
+					y: canW
+				}, {
+					x: canW / 2,
+					y: canW
+				}]
+			},
+		]
+
+		for(var i = 0; i < 7; i++) {
+			ctx.beginPath();
+			ctx.moveTo(data[i].p[0].x, data[i].p[0].y)
+			for(var j = 1; j < data[i].p.length; j++) {
+				ctx.lineTo(data[i].p[j].x, data[i].p[j].y)
+			}
+			ctx.lineTo(data[i].p[0].x, data[i].p[0].y)
+			ctx.fillStyle = data[i].color;
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
+		}
+	</script>
+
+</html>

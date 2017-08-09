@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    canvas{
+        background: #eee;
+        /*width: 500px;*/
+        /*height: 500px;*/
+    }
+</style>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+<script>
+    var ctx=myCanvas.getContext("2d");
+
+    ctx.fillStyle="red";
+    ctx.shadowOffsetX = "5";
+    ctx.shadowOffsetY = "5";
+    ctx.shadowBlur = "5";  //模糊度
+    ctx.shadowColor = "green";
+
+    ctx.fillRect(100,100,100,100)
+
+
+</script>
+</html>
