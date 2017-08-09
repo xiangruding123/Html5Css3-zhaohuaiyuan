@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--1.有一个弹性容器，在这个弹性容器里有一些个弹性子元素-->
+		<!--2.给弹性容器加一个display：flex-->
+		<style>
+			.flexContainer {
+				width: 600px;
+				height: 600px;
+				border: 1px solid blue;
+				display: flex;
+				/*row 设置主轴为水平轴，这个时候，子元素水平排列，方向从左到右，主轴开始位置左 */
+				/*row-reverse 设置主轴为水平轴，这个时候，子元素水平排列，方向从右到左，主轴开始位置右 */
+				/*column 设置主轴为垂直轴，这个时候，子元素垂直排列，方向从上到下，主轴开始位置上 */
+				/*column-reverse 设置主轴为垂直轴，这个时候，子元素垂直排列，方向从下到上，主轴开始位置下 */
+				/*flex-direction: row;*/
+				/*设置如果子元素的宽度加起来超过弹性容器的狂赌，是不是要换行*/
+				/*wrap 换行*/
+				/*nowrap 不会换行，弹性子元素缩放*/
+				/*wrap-reverse 会换行，而且会把侧轴的开始结束位置互换*/
+				/*flex-wrap: nowrap;*/
+				/*flex-direction和flex-wrap的复合属性*/
+				flex-flow: row nowrap;
+				/*会把子元素作为一个整体去设置排列情况 得有剩余空间才有效果*/
+				/*flex-start子元素在主轴开始位置*/
+				/*flex-end子元素在主轴结束位置*/
+				/*center子元素在主轴中间*/
+				/*如果子元素有N个，而且没有超出*/
+				/*space-between，把主轴上的剩余空间分成n-1份，插入到子元素中间*/
+				/*space-around，把主轴上的剩余空间分成2n份，每一个子元素旁边各加一份*/
+				/*justify-content: flex-start;*/
+				/*在主轴是水平轴的情况下，如果子元素没有设置高度，因为align-items: stretch;这是默认值，所以子元素会自动加上高度*/
+				/*flex-start  子元素在侧轴方向上在侧轴开始位置*/
+				/*flex-end 子元素在侧轴方向上在侧轴结束位置*/
+				/*center  子元素在侧轴方向上在侧轴中间*/
+				/*baseline  子元素在侧轴方向上以内容为基准去对其*/
+				/*align-items: stretch;*/
+				/*在有多行子元素的时候*/
+				/*align-content: flex-start;*/
+			}
+			
+			.flexItem {
+				width: 100px;
+				height: 100px;
+				box-sizing: border-box;
+				border: 1px solid red;
+			}
+			/*order默认值都是0，那么这个时候会按照布局里面的排列去排列*/
+			/*子元素的排列会根据order从小到大排列*/
+			/*flex-grow能控制子元素去侵占剩余空间 默认值为0，代表不侵占*/
+			/*父容器的剩余空间会按照子容器的flex-grow值去分割，加起来是几就是分割为几分，然后按照每个子元素的flex-grow值去分配*/
+			/*flex-shrink能控制子元素去缩小（因为主轴方向上的尺寸超出） 默认值为1*/
+			/*超出父容器的部分会按照子容器的flex-shrink值去分割，加起来是几就是分割为几分，然后按照每个子元素的flex-shrink值去分配*/
+			/*.flexItem:first-child{*/
+			/*width: 200px;*/
+			/*}*/
+			/*.flexItem:first-child{*/
+			/*flex-basis: 150px;*/
+			/*/!*flex-grow: 0;*!/*/
+			/*}*/
+			
+			.flexItem:nth-child(3) {
+				align-self: center;
+			}
+			
+			.flexItem:last-child {
+				align-self: flex-end;
+			}
+			/*.flexItem:first-child{flex-grow:1;}*/
+			/*.flexItem:nth-child(2){flex-grow:2;}*/
+		</style>
+		<div class="flexContainer">
+			<div class="flexItem">1</div>
+			<div class="flexItem">2</div>
+			<div class="flexItem">3</div>
+			<div class="flexItem">4</div>
+			<div class="flexItem">5</div>
+			<div class="flexItem">6</div>
+			<div class="flexItem">7</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,150 @@
+
+/*reset*/
+ul,li,.container,.container-fluid,.row{
+    margin: 0;padding: 0;
+    list-style: none;
+}
+.container,.container-fluid{
+    margin: 0 auto;
+}
+
+
+
+/*banner部分开始*/
+.bannerImg{
+    width: 100%;
+}
+#banner{
+    position: relative;
+    /*border-top: 1px solid rgba(0,0,0,0);*/
+}
+#banner header{
+    margin-top: 2vw;
+    position: relative;
+    z-index: 1000;
+}
+#banner .banner_con{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#banner .bignav ul{
+    display: flex;
+    justify-content: space-between;
+}
+#banner .bignav li{
+    color: #fff;
+    cursor: pointer;
+}
+#navBtn{
+    font-size: 3vw;
+    color: #fff;
+}
+#banner .smallnav{
+    width: 100vw;
+    height: 100vh;
+    background: #333;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    display: none;
+}
+
+#banner .smallnav li{
+    padding: 5vw 0;
+    text-align: center;
+    color: #fff;
+}
+#banner .smallnav ul{
+    margin-top: 10vh;
+}
+#banner .bannerCenter{
+    margin-top: 14vw;
+}
+#banner .bannerCenter h1{
+    font-size: 5vw;
+    color: #fff;
+}
+
+#banner .myform{
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    margin-top: 1vw;
+}
+#banner .myform input,#banner .myform button{
+    padding: 5px;
+    border: none;
+}
+#banner .myform button{
+    background: #f60;
+    color: #fff;
+}
+
+#banner .mysform{
+    position: absolute;
+    right: 1.5vw;
+    bottom: 1.5vw;
+}
+#banner .mysform span{
+    color: #fff;
+}
+#banner .mysform input{
+    width: 0vw;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px dashed #fff;
+    color: #fff;
+    visibility: hidden;
+
+    transition: all 0.3s ;
+}
+/*banner部分结束*/
+
+
+
+/*news部分开始*/
+#news{
+    border-top: 1px solid #cbcbcb;
+    position: relative;
+}
+#news .bg{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20vh;
+    background: #cbcbcb;
+    z-index: -1;
+}
+#news .top{
+    position: relative;
+}
+#news .top img{
+    width: 100%;
+}
+#news .top p{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    padding: 0 10px;
+}
+#news .newsBox{
+    margin-top: 5vw;
+}
+#news .newsBox>h4{
+    padding-left: 15px;
+}
+#news .newsBox>p{
+    padding-left: 15px;
+    color: #999;
+}
+#news .newsBox li>p{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #999;
+}
+/*news部分结束*/

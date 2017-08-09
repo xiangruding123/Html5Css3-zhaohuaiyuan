@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		@keyframes rota {
+			0% {
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+			100% {
+				transform: rotateX(720deg) rotateY(720deg);
+			}
+		}
+		
+		.rota {
+			animation: rota 1s linear 0s forwards;
+		}
+		
+		body {
+			perspective: 2000px;
+		}
+		
+		.stage {
+			width: 300px;
+			height: 300px;
+			/*border: 1px solid red;*/
+			margin: 100px auto 0px;
+			transform-style: preserve-3d;
+			position: relative;
+			transition: all 0.5s;
+			/*transform:rotateX(-30deg) rotateY(30deg);*/
+		}
+		
+		.stage .face {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: -webkit-radial-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.8));
+			border-radius: 20px;
+		}
+		
+		.face p {
+			margin: 10px;
+			padding: 0;
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			background: -webkit-radial-gradient(#cc8887 50%, #825958 80%);
+			/*background: #cc8887;*/
+		}
+		
+		.face {
+			display: flex;
+		}
+		
+		.face:first-child {
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.face:nth-child(2) {
+			justify-content: space-between;
+		}
+		
+		.face:nth-child(2) p:last-child {
+			align-self: flex-end;
+		}
+		
+		.face:nth-child(3) {
+			justify-content: space-between;
+		}
+		
+		.face:nth-child(3) p:nth-child(2) {
+			align-self: center;
+		}
+		
+		.face:nth-child(3) p:last-child {
+			align-self: flex-end;
+		}
+		
+		.face:nth-child(4) {
+			justify-content: space-between;
+		}
+		
+		.face:nth-child(4) .sface {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		
+		.face:nth-child(5) {
+			justify-content: space-between;
+		}
+		
+		.face:nth-child(5) .sface {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		
+		.face:nth-child(5) .sface:nth-child(2) {
+			justify-content: center;
+		}
+		
+		.face:nth-child(6) {
+			justify-content: space-around;
+		}
+		
+		.face:nth-child(6) .sface {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		
+		.face:first-child {
+			transform: translateZ(150px);
+		}
+		
+		.face:last-child {
+			transform: rotateY(180deg) translateZ(150px);
+		}
+		
+		.face:nth-child(2) {
+			transform: rotateX(90deg) translateZ(150px);
+		}
+		
+		.face:nth-child(5) {
+			transform: rotateX(-90deg) translateZ(150px);
+		}
+		
+		.face:nth-child(3) {
+			transform: rotateY(90deg) translateZ(150px);
+		}
+		
+		.face:nth-child(4) {
+			transform: rotateY(-90deg) translateZ(150px);
+		}
+	</style>
+
+	<body>
+		<div class="stage">
+			<div class="face">
+				<p></p>
+			</div>
+			<div class="face">
+				<p></p>
+				<p></p>
+			</div>
+			<div class="face">
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="face">
+				<div class="sface">
+					<p></p>
+					<p></p>
+				</div>
+				<div class="sface">
+					<p></p>
+					<p></p>
+				</div>
+			</div>
+			<div class="face">
+				<div class="sface">
+					<p></p>
+					<p></p>
+				</div>
+				<div class="sface">
+					<p></p>
+				</div>
+				<div class="sface">
+					<p></p>
+					<p></p>
+				</div>
+			</div>
+			<div class="face">
+				<div class="sface">
+					<p></p>
+					<p></p>
+					<p></p>
+				</div>
+				<div class="sface">
+					<p></p>
+					<p></p>
+					<p></p>
+				</div>
+			</div>
+		</div>
+		<button>转转转</button>
+	</body>
+	<script src="jquery.js"></script>
+	<script>
+		$("button").click(function() {
+			$(".stage").addClass("rota")
+		})
+		$(".stage").on("webkitAnimationEnd", function() {
+
+			$(".stage").css({
+				transform: "rotateX(0deg) rotateY(0deg)"
+			})
+
+			var arr = [{
+					x: 360,
+					y: 360
+				},
+				{
+					x: 0,
+					y: -90
+				},
+				{
+					x: 0,
+					y: 90
+				},
+				{
+					x: -90,
+					y: 0
+				},
+				{
+					x: 90,
+					y: 0
+				},
+				{
+					x: 180,
+					y: 0
+				},
+			]
+			var num = Math.floor(Math.random() * 6);
+			setTimeout(function() {
+				$(".stage").css({
+					transform: "rotateX(" + arr[num].x + "deg) rotateY(" + arr[num].y + "deg)"
+				})
+			}, 0)
+			$(".stage").removeClass("rota");
+		})
+	</script>
+
+</html>

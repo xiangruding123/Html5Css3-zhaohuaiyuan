@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+		<!--<link rel="stylesheet" href="small.css" media="all and (max-width:768px)" />-->
+		<!--<link rel="stylesheet" href="middle.css" media="all and (min-width:768px)" />-->
+		<!--<link rel="stylesheet" href="big.css" media="all and (min-width:1200px)" />-->
+	</head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.a {
+			width: 100%;
+			height: 50px;
+			background: red;
+		}
+		
+		@media all and (min-width: 768px) {
+			.a {
+				background: blue;
+			}
+		}
+		
+		@media all and (min-width: 1200px) {
+			.a {
+				background: red;
+			}
+		}
+		
+		.b {
+			width: 200px;
+			height: 100px;
+			background: red;
+		}
+		
+		@media all and (min-width: 600px) {
+			.b {
+				background: blue;
+			}
+		}
+	</style>
+
+	<body>
+		<!--1200px&#45;&#45;red  768&#45;&#45;1200 blue  0-768  yellow-->
+		<!--<div class="a"></div>-->
+		<div class="b"></div>
+	</body>
+	<script src="jquery.js"></script>
+	<script>
+	</script>
+
+</html>
