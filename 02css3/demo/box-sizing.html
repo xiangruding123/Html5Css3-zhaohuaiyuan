@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<style>
-    /*普通的计算，会把宽度设置在内容区域上，加上边框之后的宽高才是真正的占位*/
-    .aaa{
-        width: 200px;
-        height: 200px;
-        background: green;
-        border: 10px solid red;
-        box-sizing: content-box;
-    }
-    /*加上box-sizing: border-box;这个盒子整个的占位就是设置好的宽高，内容区域的宽高就是占位减去边框*/
-    .bbb{
-        width: 200px;
-        height: 200px;
-        background: green;
-        border: 10px solid red;
-        box-sizing: border-box;
-    }
-</style>
-<body>
-    <div class="aaa"></div>
-    <div class="bbb"></div>
-</body>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>box-sizing</title>
+	</head>
+	<style>
+		/*加上box-sizing: content-box;即： 普通的计算，会把宽度设置在内容区域上，加上边框之后的宽高才是真正的占位*/
+		
+		.aaa {
+			width: 200px;
+			height: 200px;
+			background: green;
+			/*margin: 10px;*/
+			border: 10px solid red;
+			padding: 10px;
+			box-sizing: content-box;
+		}
+		
+		/*加上box-sizing: border-box;这个盒子整个的占位就是设置好的宽高，内容区域的宽高就是占位减去边框*/
+		
+		.bbb {
+			width: 200px;
+			height: 200px;
+			background: green;
+			/*margin: 10px;*/
+			border: 10px solid red;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+	</style>
+
+	<body>
+		<div class="aaa"></div>
+		<p>加上box-sizing: content-box;即：普通的计算，会把宽度设置在内容区域上，加上边框之后的宽高才是真正的占位</p>
+		<div class="bbb"></div>
+		<p>加上box-sizing: border-box;这个盒子整个的占位就是设置好的宽高，内容区域的宽高就是占位减去边框</p>
+		<hr />
+		<p style="white-space: pre-line; font-size: 20px;">
+			box-sizing: content-box/border-box;
+			
+			1/content-box	
+			这是由 CSS2.1 规定的宽度高度行为。
+			宽度和高度分别应用到元素的内容框。
+			在宽度和高度之外绘制元素的内边距和边框。
+			
+			2/border-box	
+			为元素设定的宽度和高度决定了元素的边框盒。
+			就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
+			通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。
+			
+			3/inherit	规定应从父元素继承 box-sizing 属性的值。
+
+		</p>
+	</body>
+
 </html>
