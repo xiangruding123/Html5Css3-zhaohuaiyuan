@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>按需加载图片</title>
+	</head>
+	<style>
+		body,
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		
+		li {
+			height: 320px;
+		}
+		
+		img {
+			display: block;
+			width: 100%;
+		}
+	</style>
+
+	<body>
+		<ul>
+
+		</ul>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script>
+		var ch = $(window).height();
+		$.ajax({
+			url: "img.json",
+			dataType: "json",
+			success: function(data) {
+				var str = "";
+				$(data[0].img).each(function(i) {
+					str += '<li><img data-src="' + this + '" src="img/load.png" alt=""/></li>';
+				})
+				$("ul").html(str);
+				loadImg();
+			}
+		})
+
+		function loadImg() {
+			$("img").each(function(i) {
+
+				if($(this).offset().top < $("body").scrollTop() + ch) {
+					if(!$(this).attr("data-src")) {
+						return;
+					}
+					var src = $(this).attr("data-src");
+					$(this).prop("src", src)
+					$(this).attr("data-src", "");
+				}
+			})
+		}
+		$(window).scroll(function() {
+			loadImg();
+		})
+	</script>
+</html>

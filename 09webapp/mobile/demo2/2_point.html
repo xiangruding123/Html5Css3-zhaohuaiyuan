@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+	</head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 200vh;
+		}
+		
+		.a {
+			position: absolute;
+			top: 0;
+			width: 100vw;
+			height: 50vw;
+			background: rgba(255, 255, 0, 0.8);
+		}
+		
+		.b {
+			width: 50vw;
+			height: 20vw;
+			background: green;
+		}
+	</style>
+
+	<body>
+		<div class="a"></div>
+		<div class="ze"></div>
+		<div class="b"></div>
+	</body>
+	<script src="js/touch.js"></script>
+	<script>
+		//    上面的div加上tap事件后点击消失
+		//    下面的div有一个click时间，这样的话呢，点击上面div让上面div消失的时候，会触发下面div的click事件
+		touch.on(".a", "tap", function() {
+			this.style.display = "none"
+		})
+
+		document.getElementsByClassName("ze")[0].onclick = function() {
+			this.style.display = "none";
+		}
+		var b = document.getElementsByClassName("b")[0];
+		b.onclick = function() {
+			this.style.background = "red";
+		}
+		//touchstart
+		//    1.使用缓动动画，让上面的div在300ms之后再消失
+		//     2.中间放一个遮罩层，添加click事件消失，让它去接受上面div的点透事件
+		//      3.上下的事件都用tap   a 本身就是 click 事件
+
+		//    200kb
+		//    jquery.mobile.js
+		//    zepto.js 也是一个类库   16.7  用法和jquery完全一样！！！
+
+		//    只不过是没有一些方法  你就先用  not a function
+
+		//    bootstrap依赖的jq
+		//    如果要用boot里面的一些个js的部分 必须引入jq   3.3
+	</script>
+
+</html>

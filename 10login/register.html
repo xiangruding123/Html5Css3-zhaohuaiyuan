@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	</head>
+	<style>
+		body,
+		h3 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		header {
+			padding: 10px;
+			text-align: center;
+			background: #f60;
+		}
+		
+		header h3 {
+			color: #fff;
+		}
+		
+		section *:not(p) {
+			display: block;
+			width: 80%;
+			border-radius: 5px;
+			background: #fff;
+			border: 1px solid #f60;
+			margin: 10px auto;
+			padding: 10px 0;
+		}
+		
+		section button {
+			background: #f60;
+			color: #fff;
+			padding: 10px;
+		}
+		
+		section a {
+			border: none;
+		}
+	</style>
+
+	<body>
+		<header>
+			<h3>注册</h3>
+		</header>
+		<section>
+			<input id="user" type="text" />
+			<input id="pass" type="password" />
+			<button id="btn">注册</button>
+			<p>
+				<a href="login.html">登陆</a>
+			</p>
+		</section>
+	</body>
+	<script src="js/zepto.js"></script>
+	<script>
+		$("#btn").click(function() {
+			var user = $("#user").val();
+			var pass = $("#pass").val();
+			$.ajax({
+				url: "http://datainfo.duapp.com/shopdata/userinfo.php",
+				data: {
+					status: "register",
+					userID: user,
+					password: pass
+				},
+				success: function(data) {
+					if(data == 0) {
+						alert("用户名已存在！")
+					} else if(data == 1) {
+						alert("注册成功");
+						location.href = "login.html";
+					} else if(data == 2) {
+						alert("对不起，俺们错了，不怪你，壮士！");
+
+					}
+				}
+
+			})
+		})
+	</script>
+
+</html>

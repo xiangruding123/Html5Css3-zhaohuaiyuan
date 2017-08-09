@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+	</head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 200vh;
+		}
+		
+		.a {
+			width: 100vw;
+			height: 50vw;
+			background: yellow;
+		}
+	</style>
+
+	<body>
+		<div class="a"></div>
+	</body>
+	<script>
+		var a = document.querySelector(".a");
+		a.addEventListener("tap", function() {
+			this.style.background = "green";
+		})
+	</script>
+
+</html>

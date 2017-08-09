@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+	</head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.a {
+			width: 100vw;
+			height: 50vw;
+			background: yellow;
+		}
+	</style>
+
+	<body>
+		<div class="a"></div>
+	</body>
+	<script>
+		//    touches      all
+		//    targetTouches   all
+		//    changedTouches   end
+		var a = document.querySelector(".a");
+		a.onclick = function(e) {
+			this.style.background = "green"
+		}
+		//    mousedown
+		//    mousemove
+		//    a.addEventListener("touchstart",function(e){
+		//        console.log(e.touches[0].clientX+"_"+e.touches[0].screenX)
+		//    })
+		//    a.addEventListener("touchmove",function(e){
+		//        console.log(e)
+		//    })
+		//    a.addEventListener("touchend",function(e){
+		//        console.log(e)
+		//    })
+	</script>
+
+</html>

@@ -1,0 +1,158 @@
+1.pixel
+
+iphone5说自己是640*1136的屏，那么咱们在一个页面中写一个div是640*200px的样子，但是并不会占满，为什么？
+chrome调整时候会是320*568，为什么？
+
+    1.Retina 屏    2.没设置<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+ipone5说自己是640宽意思是说的是物理像素，是固定的一个单位，多大就多大
+
+但是咱们开发时说的像素是逻辑像素，也就是浏览器使用的抽象的一个单位是可以根据不同的设备去进行变大变小的
+
+设备像素缩放比DevicePixelRatio(DPR)，通过这个东西来控制逻辑像素和物理像素之间的关系的
+
+逻辑像素640=设备像素缩放比2*320像素
+
+ipone5的设备像素缩放比就是2
+
+也就是说一个逻辑像素对于物理像素来说就是四个像素，从一个方向上来说就是1:2的比例
+
+一般的高清屏的dpr都是大于等于2的，肾6就是3的....所以那么贵还是有道理的...
+
+
+手机屏幕和pc的屏幕不一样，是retina高清屏
+
+2.viewport视图
+
+
+
+1.老以前的诺基亚时代，访问一个pc网站的时候，只能访问到左上的一部分；
+1.一个pc端的页面在移动端上也是可以把整个页面都演示完的，只不过会缩小显示，但是经过处理，就可以按照设计的想法
+在移动端以不同的方式来演示，也就是响应式的技术
+
+
+其实这个时候的处理就是要把整个页面给放到一个叫做viewport的东西里面，然后再把viewport给缩放一下，最后再渲染到
+手机屏幕中
+
+
+3.meta标签
+
+通过meta标签来改变咱们viewport的一些东东，就可以使咱们的页面在移动端渲染的更完美
+
+width           n      device-width  设置宽度为设备的宽度，当然也可以设置别的
+initial-scale   1.0   设置页面的缩放，
+也就是viewport的缩放比例，
+这个知识点不重要，不要管了，就记住设成1就好了
+minimum-scale=1         设置最少缩放     不用
+maximum-scale=1         设置最多缩放     不用
+user-scalable=no         用户能否用手指来缩放
+
+
+*1.手机屏幕和咱们理解的pc屏幕不一样，是retina屏 他说的是物理像素，咱们说的是逻辑像素
+*2.要做移动端的项目，或者是响应式的项目，必须加
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+
+
+
+4.移动布局 
+ 
+响应式：性能不是最优，因为样式要写很多，但是能减少重复开发
+
+响应式百分比布局，和flex弹性布局安卓4.4
+
+百分比  flex布局  vw vh rem
+@media
+
+媒体查询来适应不同的固定宽度设计，会从一组样式转换为另一组样式，平滑友好的转换
+
+
+*弹性图片  img-responsive
+
+这个图片本身是有一个大小的吧，在做项目的过程中应该让他根据屏幕的宽度去缩放，但是
+不能超过自己的本身一个最大值，
+.a img{
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+}
+图片根据容器的改变而改变，不然加meta后，图片都会是本来的大小
+
+
+*5.特别样式处理
+
+高清图片
+
+div 100*100
+100*100
+200*200
+
+在移动页面上渲染图片，为了避免图片模糊，100*100的，在高清屏下是
+用200*200的像素来处理的，所以就得用50*50来设置；
+但是一般是这样的，设计师出的图都是2倍于屏幕分辨率的（基于ipone6 375*667）那么实际的图片就是750*1334
+所以图片咱们还是直接拿过来用就ok~
+100*100 200*200
+
+
+*如果盒子里面放的是和盒子一样尺寸的图片的话，会失真，解决方法是，放两倍于盒子尺寸的图片；
+
+
+1像素边框
+
+1像素边框用2px来渲染，所以有这么个方法；
+
+.a{
+        width: 100px;
+        height: 100px;
+        border-top: 1px solid #333;
+        position: relative;
+    }
+    .a:after{
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        border-bottom: 1px solid #333;
+        transform: scaleY(0.5);
+    }
+
+html{
+}
+rem  根据根元素的字体大小来搞来搞去
+html {
+    font-size: 62.5%; /* 10÷16=62.5% */
+}
+@media only screen and (min-width: 481px){
+    html {
+        font-size: 94%!important; /* 15.04÷16=94% */
+    }
+}
+@media only screen and (min-width: 561px){
+    html {
+        font-size: 109%!important; /* 17.44÷16=109% */
+    }
+}
+@media only screen and (min-width: 641px){
+    html {
+        font-size: 125%!important; /* 20÷16=125% */
+    }
+}
+
+
+vw：viewpoint width，视窗宽度，1vw等于视窗宽度的1%。
+vh：viewpoint height，视窗高度，1vh等于视窗高度的1%。
+vmin：vw和vh中较小的那个。
+vmax：vw和vh中较大的那个。
+IE9+局部支持，chrome/firefox/safari/opera支持，ios safari 8+支持，
+android browser4.4+支持，chrome for android39支持
+
+百分比  rem  vw vh  bootstrap   弹性盒
+
+多行文本溢出
+overflow : hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+
+

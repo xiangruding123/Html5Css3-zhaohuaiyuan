@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+	</head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 200vh;
+		}
+		
+		#target {
+			width: 30vw;
+			height: 30vw;
+			border-radius: 50%;
+			background: red;
+			text-align: center;
+			line-height: 30vw;
+			margin: 0 auto;
+		}
+	</style>
+
+	<body>
+		<div id="target">0000</div>
+	</body>
+	<script src="js/touch.js"></script>
+	<script>
+		//    touch.on("#target","tap",function(e){
+		//
+		//    })
+		//    touch.on("#target","tap",function(){
+		//        alert(1)
+		//    })
+		//    touch.on("#target","hold",function(){
+		//    alert(1)
+		//})
+		//    touch.on("#target","doubletap",function(){
+		//        alert(1)
+		//    })
+
+		//tap hold doubletap rotate swipeleft  swiperight
+		//var angle = 0;
+		//touch.on('#target', 'touchstart', function(ev) {
+		//    ev.startRotate();
+		//    ev.preventDefault();
+		//});
+		//touch.on('#target', 'rotate', function(ev) {
+		//    var totalAngle = angle + ev.rotation;
+		//    if (ev.fingerStatus === 'end') { //这一句很重要
+		//        angle = angle + ev.rotation;
+		////        $('.div1').text("本次旋转角度为:" + ev.rotation + "度, 方向:" + ev.direction + ".");
+		//    }
+		//    this.style.webkitTransform = 'rotate(' + totalAngle + 'deg)';
+		//});
+
+		touch.on('#target', 'touchstart', function(ev) {
+			ev.preventDefault();
+		});
+		var target = document.getElementById("target");
+		target.style.webkitTransition = 'all ease 0.2s';
+		touch.on(target, 'swiperight', function(ev) {
+			this.style.webkitTransform = "translate3d(" + this.offsetLeft + "px,0,0)";
+			//                  $('.div1').text("向右滑动.");
+		});
+		touch.on(target, 'swipeleft', function(ev) {
+			//                  $('.div1').text("向左滑动.");
+			this.style.webkitTransform = "translate3d(-" + this.offsetLeft + "px,0,0)";
+		});
+	</script>
+
+</html>
